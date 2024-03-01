@@ -46,7 +46,6 @@ public class Form_LogIn extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTexfieldPH_FielTex1 = new LIB.JTexfieldPH_FielTex();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -101,9 +100,6 @@ public class Form_LogIn extends javax.swing.JFrame {
         });
         jEImagePanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 30, 30));
 
-        jTexfieldPH_FielTex1.setBackground(new Color(0,0,0,0));
-        jEImagePanel2.add(jTexfieldPH_FielTex1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -155,7 +151,6 @@ public class Form_LogIn extends javax.swing.JFrame {
     private LIB.JPanelTransparente jPanelTransparente1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private LIB.JTexfieldPH_FielTex jTexfieldPH_FielTex1;
     private LIB.JTexfieldPH_Password login_password;
     private LIB.JTexfieldPH_FielTex login_username;
     // End of variables declaration//GEN-END:variables
