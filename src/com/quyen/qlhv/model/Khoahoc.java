@@ -9,60 +9,62 @@ import java.util.Date;
  * @author MY PC
  */
 public class Khoahoc {
-    private int ma_khoa_hoc;
-    private String ten_khoa_hoc;
-    private String mo_ta;
-    private Date ngay_bat_dau;
-    private Date ngay_ket_thuc;
-    private boolean trang_thai;
+    private int id;
+    private String name;
+    private String description;
+    private Date start_date;
+    private Date end_date;
+    private boolean status;
 
-    public int getMa_khoa_hoc() {
-        return ma_khoa_hoc;
+    public int getId() {
+        return id;
     }
 
-    public void setMa_khoa_hoc(int ma_khoa_hoc) {
-        this.ma_khoa_hoc = ma_khoa_hoc;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getTen_khoa_hoc() {
-        return ten_khoa_hoc;
+    public String getName() {
+        return name;
     }
 
-    public void setTen_khoa_hoc(String ten_khoa_hoc) {
-        this.ten_khoa_hoc = ten_khoa_hoc;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getMo_ta() {
-        return mo_ta;
+    public String getDescription() {
+        return description;
     }
 
-    public void setMo_ta(String mo_ta) {
-        this.mo_ta = mo_ta;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Date getNgay_bat_dau() {
-        return ngay_bat_dau;
+    public Date getStart_date() {
+        return start_date;
     }
 
-    public void setNgay_bat_dau(Date ngay_bat_dau) {
-        this.ngay_bat_dau = ngay_bat_dau;
+    public void setStart_date(Date start_date) {
+        this.start_date = start_date;
     }
 
-    public Date getNgay_ket_thuc() {
-        return ngay_ket_thuc;
+    public Date getEnd_date() {
+        return end_date;
     }
 
-    public void setNgay_ket_thuc(Date ngay_ket_thuc) {
-        this.ngay_ket_thuc = ngay_ket_thuc;
+    public void setEnd_date(Date end_date) {
+        this.end_date = end_date;
     }
 
-    public boolean isTrang_thai() {
-        return trang_thai;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setTrang_thai(boolean trang_thai) {
-        this.trang_thai = trang_thai;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
+
+    
     
     
 }

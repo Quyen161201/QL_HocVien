@@ -9,51 +9,52 @@ import java.util.Date;
  * @author MY PC
  */
 public class Lophoc {
-    private int ma_lop_hoc;
-    private Khoahoc khoahoc;
-    private Hocvien hocvien;
-    private Date ngay_dang_ky;
-    private boolean tinh_trang;
+    private int id;
+    private Khoahoc Khoahoc;
+    private Hocvien Hocvien;
+    private Date start_register;
+    private boolean status;
 
-    public int getMa_lop_hoc() {
-        return ma_lop_hoc;
+    public int getId() {
+        return id;
     }
 
-    public void setMa_lop_hoc(int ma_lop_hoc) {
-        this.ma_lop_hoc = ma_lop_hoc;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Khoahoc getKhoahoc() {
-        return khoahoc;
+        return Khoahoc;
     }
 
     public void setKhoahoc(Khoahoc khoahoc) {
-        this.khoahoc = khoahoc;
+        this.Khoahoc = khoahoc;
     }
 
     public Hocvien getHocvien() {
-        return hocvien;
+        return Hocvien;
     }
 
-    public void setHocvien(Hocvien hocvien) {
-        this.hocvien = hocvien;
+    public void setHocvien(Hocvien Hocvien) {
+        this.Hocvien = Hocvien;
     }
 
-    public Date getNgay_dang_ky() {
-        return ngay_dang_ky;
+    public Date getStart_register() {
+        return start_register;
     }
 
-    public void setNgay_dang_ky(Date ngay_dang_ky) {
-        this.ngay_dang_ky = ngay_dang_ky;
+    public void setStart_register(Date start_register) {
+        this.start_register = start_register;
     }
 
-    public boolean isTinh_trang() {
-        return tinh_trang;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setTinh_trang(boolean tinh_trang) {
-        this.tinh_trang = tinh_trang;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
-    
+
+   
     
 }

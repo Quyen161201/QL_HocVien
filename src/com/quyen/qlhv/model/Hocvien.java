@@ -10,69 +10,88 @@ import java.util.Date;
  * @author MY PC
  */
 public class Hocvien {
-    private int ma_hoc_vien;
-    private String ho_ten;
-    private String so_dien_thoai;
-    private String dia_chi;
-    private Date ngay_sinh;
-    private boolean gioi_tinh;
-    private boolean trang_thai;
-
-    public int getMa_hoc_vien() {
-        return ma_hoc_vien;
+    private int id;
+    private String name;
+    private String phone;
+    private String email;
+    private String address;
+    private Date date_birth;
+    private boolean gender;
+    private boolean status;
+    
+    
+    
+    public String getEmail() {
+        return email;
     }
 
-    public void setMa_hoc_vien(int ma_hoc_vien) {
-        this.ma_hoc_vien = ma_hoc_vien;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+
+    public int getId() {
+        return id;
     }
 
-    public String getHo_ten() {
-        return ho_ten;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setHo_ten(String ho_ten) {
-        this.ho_ten = ho_ten;
+    public String getName() {
+        return name;
     }
 
-    public String getSo_dien_thoai() {
-        return so_dien_thoai;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setSo_dien_thoai(String so_dien_thoai) {
-        this.so_dien_thoai = so_dien_thoai;
+    public String getPhone() {
+        return phone;
     }
 
-    public String getDia_chi() {
-        return dia_chi;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public void setDia_chi(String dia_chi) {
-        this.dia_chi = dia_chi;
+    public String getAddress() {
+        return address;
     }
 
-    public Date getNgay_sinh() {
-        return ngay_sinh;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public void setNgay_sing(Date ngay_sing) {
-        this.ngay_sinh = ngay_sing;
+    public Date getDate_birth() {
+        return date_birth;
     }
 
-    public boolean isGioi_tinh() {
-        return gioi_tinh;
+    public void setDate_birth(Date date_birth) {
+        this.date_birth = date_birth;
     }
 
-    public void setGioi_tinh(boolean gioi_tinh) {
-        this.gioi_tinh = gioi_tinh;
+    public boolean isGender() {
+        return gender;
     }
 
-    public boolean isTrang_thai() {
-        return trang_thai;
+    public void setGender(boolean gender) {
+        this.gender = gender;
     }
 
-    public void setTrang_thai(boolean trang_thai) {
-        this.trang_thai = trang_thai;
+    public boolean isStatus() {
+        return status;
     }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return  id + "-" + name;
+    }
+
+    
     
     
 }
