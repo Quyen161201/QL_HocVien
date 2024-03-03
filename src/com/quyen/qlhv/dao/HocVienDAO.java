@@ -13,5 +13,6 @@ import com.quyen.qlhv.model.Hocvien;
 public interface HocVienDAO {
     public List<Hocvien> getList();
     public int createOrUpdate(Hocvien hocVien);
+    public int delete(Hocvien hocvien);
 
 }

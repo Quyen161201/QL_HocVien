@@ -71,7 +71,6 @@ public class HocvienDaoImpl implements HocVienDAO{
             if (rs.next()) {
                 generatedKey = rs.getInt(1);
             }
-            System.out.print("rs"+generatedKey);
             ps.close();
             con.close();
             
@@ -79,6 +78,29 @@ public class HocvienDaoImpl implements HocVienDAO{
             
         } catch (Exception e) {
             
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
+    public int delete(Hocvien hocvien) {
+        try {
+            Connection con = DBconnect.getConnection();
+            String sql = "DELETE FROM student WHERE id = ?";
+            PreparedStatement ps = con.prepareCall(sql);
+            ps.setInt(1, hocvien.getId());
+           
+            int rowsDeleted = ps.executeUpdate();
+            System.out.println("rs"+ rowsDeleted);
+            if(rowsDeleted > 0){
+                return rowsDeleted;
+                
+            } 
+             ps.close();
+            con.close();
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;
