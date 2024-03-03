@@ -17,6 +17,7 @@ public class HocVienJPanel extends javax.swing.JPanel {
         initComponents();
         QuanLyHocVienController controller = new QuanLyHocVienController(jpnView, btnCreate, jtfSearch);
         controller.setDataToTable();
+        controller.setEvent();
         
     }
 
@@ -41,8 +42,9 @@ public class HocVienJPanel extends javax.swing.JPanel {
         jtfSearch.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jtfSearch.setPlaceholder("Tìm kiếm...");
 
-        btnCreate.setColorPrimario(new java.awt.Color(255, 255, 255));
-        btnCreate.setColorSecundario(new java.awt.Color(255, 255, 255));
+        btnCreate.setBackground(new java.awt.Color(0, 255, 51));
+        btnCreate.setColorPrimario(new java.awt.Color(51, 255, 51));
+        btnCreate.setColorSecundario(new java.awt.Color(0, 255, 102));
 
         jlb_create.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jlb_create.setForeground(new java.awt.Color(255, 255, 255));
@@ -84,9 +86,9 @@ public class HocVienJPanel extends javax.swing.JPanel {
             .addGroup(jpnRootLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jtfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 409, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 396, Short.MAX_VALUE)
                 .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addGap(39, 39, 39))
             .addComponent(jpnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jpnRootLayout.setVerticalGroup(
