@@ -12,16 +12,27 @@ import com.quyen.qlhv.model.Hocvien;
  * @author MY PC
  */
 public class HocVienFrame extends javax.swing.JFrame {
+   
+   
 
     /**
      * Creates new form HocVienFrame
      */
+    
     public HocVienFrame(Hocvien hocvien) {
         initComponents();
-        HocVienController controller = new HocVienController(jtfId, jtfName, btnSave, jtfPhone, jtfEmail, jRadioNam, jRadioNu, jtaAddrees, jcbStatus, jdcBirth,jlbMess);
+        HocVienController controller = new HocVienController(jtfId, jtfName, btnSave, jtfPhone, jtfEmail, jRadioNam, jRadioNu, jtaAddrees, jcbStatus, jdcBirth,jlbMess,btnDelete);
         controller.setView(hocvien);
         controller.setEvent();
     }
+     public void setTextField(){
+         jtfId.setEditable(false);
+    }
+    public void setBtn(){
+        btnDelete.setVisible(false);
+       
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +71,8 @@ public class HocVienFrame extends javax.swing.JFrame {
         btnSave = new LIB.JPanelRound();
         jlb_save = new javax.swing.JLabel();
         jlbMess = new javax.swing.JLabel();
+        btnDelete = new LIB.JPanelRound();
+        jlbDelete = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -179,7 +192,7 @@ public class HocVienFrame extends javax.swing.JFrame {
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jcbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpnViewLayout.setVerticalGroup(
             jpnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,32 +270,61 @@ public class HocVienFrame extends javax.swing.JFrame {
         jlbMess.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jlbMess.setForeground(new java.awt.Color(255, 51, 0));
 
+        btnDelete.setBackground(new java.awt.Color(0, 255, 51));
+        btnDelete.setColorPrimario(new java.awt.Color(255, 51, 51));
+        btnDelete.setColorSecundario(new java.awt.Color(255, 51, 51));
+
+        jlbDelete.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jlbDelete.setForeground(new java.awt.Color(255, 255, 255));
+        jlbDelete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbDelete.setText("Xóa dữ liệu");
+
+        javax.swing.GroupLayout btnDeleteLayout = new javax.swing.GroupLayout(btnDelete);
+        btnDelete.setLayout(btnDeleteLayout);
+        btnDeleteLayout.setHorizontalGroup(
+            btnDeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDeleteLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jlbDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        btnDeleteLayout.setVerticalGroup(
+            btnDeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnDeleteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlbDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jpnRootLayout = new javax.swing.GroupLayout(jpnRoot);
         jpnRoot.setLayout(jpnRootLayout);
         jpnRootLayout.setHorizontalGroup(
             jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnRootLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jpnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnRootLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jlbMess, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(18, 321, Short.MAX_VALUE))
+            .addGroup(jpnRootLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnRootLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jpnRootLayout.setVerticalGroup(
             jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnRootLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jlbMess)
+                .addGap(20, 20, 20)
                 .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpnRootLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpnRootLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jlbMess)))
-                .addGap(30, 30, 30)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jpnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(25, 25, 25))
         );
@@ -318,6 +360,7 @@ public class HocVienFrame extends javax.swing.JFrame {
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private LIB.JPanelRound btnDelete;
     private LIB.JPanelRound btnSave;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
@@ -333,6 +376,7 @@ public class HocVienFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JCheckBox jcbStatus;
     private com.toedter.calendar.JDateChooser jdcBirth;
+    private javax.swing.JLabel jlbDelete;
     private javax.swing.JLabel jlbMess;
     private javax.swing.JLabel jlbMess1;
     private javax.swing.JLabel jlbMess2;

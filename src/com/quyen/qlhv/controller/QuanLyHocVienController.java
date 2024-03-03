@@ -17,6 +17,7 @@ import java.awt.Font;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import LIB.JPanelRound;
 import javax.swing.RowFilter;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -38,15 +39,17 @@ import java.util.Date;
 public class QuanLyHocVienController {
     private JPanel jpnView;
     private JPanelRound btnCreate;
+    private JPanelRound btnDelete;
     private JTextField jtfSearch;
     private HocVienService hocVienService = null;
     private String [] listColumn = {"Mã học viên","STT","Tên học viên","Ngày sinh","Giới tính","Số điện thoại","Email","Địa chỉ","Trạng thái"};
     private  TableRowSorter<TableModel> rowSorter = null;
     private ClassTableModel classTableModel= null;
-    public QuanLyHocVienController(JPanel jpnView, JPanelRound btnCreate, JTextField jtfSearch) {
+    public QuanLyHocVienController(JPanel jpnView, JPanelRound btnCreate, JTextField jtfSearch,JPanelRound btnDelete) {
         this.jpnView = jpnView;
         this.btnCreate = btnCreate;
         this.jtfSearch = jtfSearch;
+        this.btnDelete=btnDelete;
         this.hocVienService = new HocVienServiceImpl();
         this.classTableModel = new ClassTableModel();
         
@@ -111,7 +114,6 @@ public class QuanLyHocVienController {
                     
                      Hocvien hocVien = new Hocvien();
                      hocVien.setId((int)model.getValueAt(selectedRowindex, 0));
-                     System.err.println("idd"+(int)model.getValueAt(selectedRowindex, 0));
                      hocVien.setName(model.getValueAt(selectedRowindex, 2).toString());
                      hocVien.setGender(model.getValueAt(selectedRowindex, 4).toString().equalsIgnoreCase("Nam"));
                      hocVien.setDate_birth((Date)model.getValueAt(selectedRowindex, 3));
@@ -121,11 +123,12 @@ public class QuanLyHocVienController {
                      hocVien.setStatus((boolean) model.getValueAt(selectedRowindex,8));
                    
                      HocVienFrame frame = new HocVienFrame(hocVien);
+                   
                      frame.setTitle("Thông tin học viên");
+                     frame.setTextField();
                      frame.setResizable(false);
                      frame.setLocationRelativeTo(null);
-                     frame.setVisible(true);
-                   
+                     frame.setVisible(true);  
                 }
                
                 
@@ -158,10 +161,13 @@ public class QuanLyHocVienController {
             @Override
             public void mouseClicked(MouseEvent e) {
                  HocVienFrame frame = new HocVienFrame(new Hocvien());
+                 frame.setBtn();
                  frame.setVisible(true);
                  frame.setTitle("Thông tin học viên");
                  frame.setLocationRelativeTo(null);
                  frame.setResizable(false);
+                
+                 
             }
 
             @Override
