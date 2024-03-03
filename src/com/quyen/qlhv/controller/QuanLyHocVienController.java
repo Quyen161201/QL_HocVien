@@ -24,7 +24,13 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import LIB.JPanelRound;
+import com.quyen.qlhv.views.HocVienFrame;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Date;
 /**
  *
  * @author MY PC
@@ -94,6 +100,38 @@ public class QuanLyHocVienController {
         table.getColumnModel().getColumn(1).setPreferredWidth(80);
 
 
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(e.getClickCount() == 2 && table.getSelectedRow() != -1){
+                     DefaultTableModel model = (DefaultTableModel) table.getModel();
+                     
+                     int selectedRowindex = table.getSelectedRow();
+                     selectedRowindex = table.convertRowIndexToModel(selectedRowindex);
+                    
+                     Hocvien hocVien = new Hocvien();
+                     hocVien.setId((int)model.getValueAt(selectedRowindex, 0));
+                     System.err.println("idd"+(int)model.getValueAt(selectedRowindex, 0));
+                     hocVien.setName(model.getValueAt(selectedRowindex, 2).toString());
+                     hocVien.setGender(model.getValueAt(selectedRowindex, 4).toString().equalsIgnoreCase("Nam"));
+                     hocVien.setDate_birth((Date)model.getValueAt(selectedRowindex, 3));
+                     hocVien.setPhone(model.getValueAt(selectedRowindex, 5) != null ? model.getValueAt(selectedRowindex, 5).toString(): "");
+                     hocVien.setEmail(model.getValueAt(selectedRowindex, 6) != null ? model.getValueAt(selectedRowindex, 6).toString():"");
+                     hocVien.setAddress(model.getValueAt(selectedRowindex, 7) != null ? model.getValueAt(selectedRowindex, 7).toString(): "");
+                     hocVien.setStatus((boolean) model.getValueAt(selectedRowindex,8));
+                   
+                     HocVienFrame frame = new HocVienFrame(hocVien);
+                     frame.setTitle("Thông tin học viên");
+                     frame.setResizable(false);
+                     frame.setLocationRelativeTo(null);
+                     frame.setVisible(true);
+                   
+                }
+               
+                
+            }
+            
+        });
         
         table.getTableHeader().setFont(new Font("Arial",Font.BOLD,14));
         table.getTableHeader().setPreferredSize(new Dimension(100,50));
@@ -115,5 +153,33 @@ public class QuanLyHocVienController {
     }
     
     
-    
+    public void setEvent(){
+        btnCreate.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                 HocVienFrame frame = new HocVienFrame(new Hocvien());
+                 frame.setVisible(true);
+                 frame.setTitle("Thông tin học viên");
+                 frame.setLocationRelativeTo(null);
+                 frame.setResizable(false);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+                btnCreate.setColorPrimario(new Color(0,200,83));
+                btnCreate.setColorSecundario(new Color(0,200,83));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                 btnCreate.setColorPrimario(new Color(0,200,83));
+                btnCreate.setColorSecundario(new Color(0,200,83));
+            }
+            
+            
+            
+        });
+        
+    }
 }

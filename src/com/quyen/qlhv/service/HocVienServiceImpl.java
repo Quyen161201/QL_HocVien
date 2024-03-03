@@ -22,5 +22,10 @@ public class HocVienServiceImpl implements HocVienService{
     public List<Hocvien> getList() {
        return HocVienDao.getList();
     }
+
+    @Override
+    public int createOrUpdate(Hocvien hocVien) {
+        return HocVienDao.createOrUpdate(hocVien);
+    }
     
 }

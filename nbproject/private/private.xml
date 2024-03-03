@@ -3,10 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/dao/DBconnect.java</file>
+            <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/controller/ChuyenManHinhController.java</file>
+            <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/controller/HocVienController.java</file>
+            <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/views/MainJFrame.java</file>
+            <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/views/HocVienJPanel.java</file>
             <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/dao/HocVienDAO.java</file>
             <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/model/Hocvien.java</file>
             <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/main/Main.java</file>
+            <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/bean/DanhMucBean.java</file>
+            <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/utility/ClassTableModel.java</file>
+            <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/service/HocVienServiceImpl.java</file>
             <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/model/Lophoc.java</file>
+            <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/views/HocVienFrame.java</file>
+            <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/controller/QuanLyHocVienController.java</file>
             <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/service/HocVienService.java</file>
             <file>file:/E:/java_form/QLHocVien/src/com/quyen/qlhv/dao/HocvienDaoImpl.java</file>
         </group>
