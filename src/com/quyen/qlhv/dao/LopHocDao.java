@@ -4,17 +4,13 @@
  */
 package com.quyen.qlhv.dao;
 
+import com.quyen.qlhv.model.Lophoc;
 import java.util.List;
-import com.quyen.qlhv.model.Hocvien;
+
 /**
  *
  * @author MY PC
  */
-public interface HocVienDAO {
-    public List<Hocvien> getList();
-    public int createOrUpdate(Hocvien hocVien);
-    public int delete(Hocvien hocvien);
-    
-    
-
+public interface LopHocDao {
+    public List<Lophoc> getList();
 }

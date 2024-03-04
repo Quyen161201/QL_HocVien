@@ -4,6 +4,7 @@
  */
 package com.quyen.qlhv.controller;
 import LIB.JPanelRound;
+import com.quyen.qlhv.bean.ComboItemBean;
 import com.quyen.qlhv.model.Hocvien;
 import com.quyen.qlhv.service.HocVienService;
 import com.quyen.qlhv.service.HocVienServiceImpl;
@@ -19,6 +20,19 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import com.quyen.qlhv.controller.QuanLyHocVienController;
+import com.quyen.qlhv.dao.DBconnect;
+import com.quyen.qlhv.model.Lophoc;
+import com.quyen.qlhv.service.LopHocService;
+import com.quyen.qlhv.service.LophocServiceImpl;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 
@@ -42,10 +56,12 @@ public class HocVienController {
     private JCheckBox jcbStatus;
     private JDateChooser jdcBirth;
     private JLabel jlbMess;
+    private JComboBox jcbClass;
     private Hocvien hocvien = null;
     private HocVienService hocVienService = null;
+    private LopHocService lopHocService = null;
 
-    public HocVienController(JTextField jtfId, JTextField jtfName, JPanelRound btnSave, JTextField jtfPhone, JTextField jtEmail, JRadioButton jRadioNam, JRadioButton jRadioNu, JTextArea jtaAddress, JCheckBox jcbStatus, JDateChooser jdcBirth,JLabel jlbMess,JPanelRound btnDelete) {
+    public HocVienController(JTextField jtfId, JTextField jtfName, JPanelRound btnSave, JTextField jtfPhone, JTextField jtEmail, JRadioButton jRadioNam, JRadioButton jRadioNu, JTextArea jtaAddress, JCheckBox jcbStatus, JDateChooser jdcBirth,JLabel jlbMess,JPanelRound btnDelete,JComboBox jcbClass) {
         this.jtfId = jtfId;
         this.jtfName = jtfName;
         this.btnSave = btnSave;
@@ -58,7 +74,9 @@ public class HocVienController {
         this.jdcBirth = jdcBirth;
         this.jlbMess=jlbMess;
         this.hocVienService=new HocVienServiceImpl();
+        this.lopHocService= new LophocServiceImpl();
         this.btnDelete = btnDelete;
+        this.jcbClass = jcbClass;
     }
 
     
@@ -68,6 +86,7 @@ public class HocVienController {
          jtfName.setText(hocvien.getName());
          jtfPhone.setText(hocvien.getPhone());
          jtfEmail.setText(hocvien.getEmail());
+          
          if(hocvien.isGender()){
              jRadioNam.setSelected(true);
              jRadioNu.setSelected(false);
@@ -81,6 +100,20 @@ public class HocVienController {
         jtaAddress.setText(hocvien.getAddress());
         jcbStatus.setSelected(hocvien.isStatus());
         jdcBirth.setDate(hocvien.getDate_birth());
+        List<Lophoc> listData = lopHocService.getList();
+                
+                DefaultComboBoxModel model = new DefaultComboBoxModel();
+                int record = listData.size();
+                if(record > 0){
+                    for(int i = 0; i< record;i++){
+                        Lophoc lophoc = listData.get(i);
+                        model.addElement(new ComboItemBean(lophoc.getId(),lophoc.getName()));
+                       
+                    }
+                   
+                }
+                jcbClass.setModel(model);
+                
      }
     public void setEvent(){
         hocvien = new Hocvien(); 
@@ -94,7 +127,7 @@ public class HocVienController {
                 }
                 else{
                     if(showDialog()){
-                        
+                    Object item=jcbClass.getSelectedItem();
                     
                     hocvien.setId(Integer.parseInt(jtfId.getText()));
                     hocvien.setName(jtfName.getText().trim());
@@ -104,9 +137,8 @@ public class HocVienController {
                     hocvien.setDate_birth(jdcBirth.getDate());
                     hocvien.setAddress(jtaAddress.getText());
                     hocvien.setStatus(jcbStatus.isSelected());
-                    
+                    hocvien.setClass_id(((ComboItemBean)item).getKey());
                     int lastId=hocVienService.createOrUpdate(hocvien);
-                   
                     if(lastId > 0){
                     hocvien.setId(lastId);
                     jtfId.setText(""+lastId);
@@ -161,8 +193,17 @@ public class HocVienController {
     
             }
         
-    
+        
     });
+        
+       jcbClass.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                
+                Object item=jcbClass.getSelectedItem();
+                System.out.println(".itemStateChanged()"+((ComboItemBean)item).getKey());
+            }
+       });
         
         
         

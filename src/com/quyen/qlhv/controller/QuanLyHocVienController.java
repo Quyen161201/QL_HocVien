@@ -128,6 +128,7 @@ public class QuanLyHocVienController {
                      frame.setTextField();
                      frame.setResizable(false);
                      frame.setLocationRelativeTo(null);
+                     
                      frame.setVisible(true);  
                 }
                

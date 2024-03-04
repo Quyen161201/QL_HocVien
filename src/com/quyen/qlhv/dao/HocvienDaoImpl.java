@@ -53,9 +53,9 @@ public class HocvienDaoImpl implements HocVienDAO{
     public int createOrUpdate(Hocvien hocVien) {
         try {
             Connection con = DBconnect.getConnection();
-            String sql = "INSERT INTO db_qlhv.student(id,name,gender,phone,email,date_birth,address,status)"
-                    + " VALUES(?,?,?,?,?,?,?,?)ON DUPLICATE KEY UPDATE name=VALUES(name),gender=VALUES(gender),phone=VALUES(phone),"
-                    + "email=VALUES(email),date_birth=VALUES(date_birth),address=VALUES(address),status=VALUES(status);";
+            String sql = "INSERT INTO db_qlhv.student(id,name,gender,phone,email,date_birth,address,status,class_id)"
+                    + " VALUES(?,?,?,?,?,?,?,?,?)ON DUPLICATE KEY UPDATE name=VALUES(name),gender=VALUES(gender),phone=VALUES(phone),"
+                    + "email=VALUES(email),date_birth=VALUES(date_birth),address=VALUES(address),status=VALUES(status),class_id=VALUES(class_id);";
              PreparedStatement ps = con.prepareCall(sql);
              ps.setInt(1,hocVien.getId());
              ps.setString(2,hocVien.getName());
@@ -65,6 +65,7 @@ public class HocvienDaoImpl implements HocVienDAO{
              ps.setDate(6, new Date(hocVien.getDate_birth().getTime()) );
              ps.setString(7, hocVien.getAddress());
              ps.setBoolean(8, hocVien.isStatus());
+             ps.setInt(9, hocVien.getClass_id());
             ps.execute();
             ResultSet rs = ps.getGeneratedKeys();
             int generatedKey = 0;

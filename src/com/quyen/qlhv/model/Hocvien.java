@@ -17,9 +17,18 @@ public class Hocvien {
     private String address;
     private Date date_birth;
     private boolean gender;
+    private int class_id;
     private boolean status;
+
     
     
+    public int getClass_id() {
+        return class_id;
+    }
+
+    public void setClass_id(int class_id) {
+        this.class_id = class_id;
+    }
     
     public String getEmail() {
         return email;

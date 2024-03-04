@@ -10,8 +10,8 @@ import java.util.Date;
  */
 public class Lophoc {
     private int id;
-    private Khoahoc Khoahoc;
-    private Hocvien Hocvien;
+    private String name;
+    private int course_id;
     private Date start_register;
     private boolean status;
 
@@ -23,21 +23,25 @@ public class Lophoc {
         this.id = id;
     }
 
-    public Khoahoc getKhoahoc() {
-        return Khoahoc;
+    public int getCourse_id() {
+        return course_id;
     }
 
-    public void setKhoahoc(Khoahoc khoahoc) {
-        this.Khoahoc = khoahoc;
+    public void setCourse_id(int course_id) {
+        this.course_id = course_id;
     }
 
-    public Hocvien getHocvien() {
-        return Hocvien;
+    
+
+    public String getName() {
+        return name;
     }
 
-    public void setHocvien(Hocvien Hocvien) {
-        this.Hocvien = Hocvien;
+    public void setName(String name) {
+        this.name = name;
     }
+
+   
 
     public Date getStart_register() {
         return start_register;
