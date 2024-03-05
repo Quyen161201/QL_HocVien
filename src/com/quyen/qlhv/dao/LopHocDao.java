@@ -11,6 +11,10 @@ import java.util.List;
  *
  * @author MY PC
  */
-public interface LopHocDao {
-    public List<Lophoc> getList();
+public interface LopHocDAO {
+     public List<Lophoc> getLopHocList();
+    public boolean insert(Lophoc lophoc);
+    public boolean update(Lophoc lophoc);
+    public boolean delete(int i);
+    
 }

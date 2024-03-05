@@ -4,7 +4,6 @@
  */
 package com.quyen.qlhv.service;
 
-import com.quyen.qlhv.model.Hocvien;
 import com.quyen.qlhv.model.Lophoc;
 import java.util.List;
 
@@ -12,6 +11,9 @@ import java.util.List;
  *
  * @author MY PC
  */
-public interface  LopHocService {
-     public List<Lophoc> getList();
+public interface LophocService {
+      public boolean insert(Lophoc lophoc);
+    public boolean update(Lophoc lophoc);
+    public boolean delete(int i);
+     public List<Lophoc> getLopHocList();
 }

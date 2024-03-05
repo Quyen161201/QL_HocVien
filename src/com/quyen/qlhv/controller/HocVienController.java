@@ -19,25 +19,16 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
-import com.quyen.qlhv.controller.QuanLyHocVienController;
-import com.quyen.qlhv.dao.DBconnect;
 import com.quyen.qlhv.model.Lophoc;
-import com.quyen.qlhv.service.LopHocService;
 import com.quyen.qlhv.service.LophocServiceImpl;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
-import javax.swing.JPanel;
-
-
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import com.quyen.qlhv.service.LophocService;
 
 /**
  *
@@ -59,7 +50,7 @@ public class HocVienController {
     private JComboBox jcbClass;
     private Hocvien hocvien = null;
     private HocVienService hocVienService = null;
-    private LopHocService lopHocService = null;
+    private LophocService lopHocService = null;
 
     public HocVienController(JTextField jtfId, JTextField jtfName, JPanelRound btnSave, JTextField jtfPhone, JTextField jtEmail, JRadioButton jRadioNam, JRadioButton jRadioNu, JTextArea jtaAddress, JCheckBox jcbStatus, JDateChooser jdcBirth,JLabel jlbMess,JPanelRound btnDelete,JComboBox jcbClass) {
         this.jtfId = jtfId;
@@ -80,7 +71,7 @@ public class HocVienController {
     }
 
     
-     public void setView(Hocvien hocvien){
+   public void setView(Hocvien hocvien){
          this.hocvien = hocvien;
          jtfId.setText(""+hocvien.getId());
          jtfName.setText(hocvien.getName());
@@ -100,7 +91,7 @@ public class HocVienController {
         jtaAddress.setText(hocvien.getAddress());
         jcbStatus.setSelected(hocvien.isStatus());
         jdcBirth.setDate(hocvien.getDate_birth());
-        List<Lophoc> listData = lopHocService.getList();
+        List<Lophoc> listData = lopHocService.getLopHocList();
                 
                 DefaultComboBoxModel model = new DefaultComboBoxModel();
                 int record = listData.size();
@@ -115,7 +106,8 @@ public class HocVienController {
                 jcbClass.setModel(model);
                 
      }
-    public void setEvent(){
+   
+   public void setEvent(){
         hocvien = new Hocvien(); 
         btnSave.addMouseListener(new MouseAdapter() {
             
@@ -208,6 +200,5 @@ public class HocVienController {
         
         
     }
-    
     
 }
