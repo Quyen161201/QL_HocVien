@@ -19,7 +19,7 @@ public class DBconnect {
         try {
          
           Class.forName("com.mysql.cj.jdbc.Driver");
-          con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/db_qlhv","root","");
+          con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/qlhv","root","Pantsirs1");
          
         } 
         catch (Exception e) {

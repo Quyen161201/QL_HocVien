@@ -3,17 +3,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.quyen.qlhv.model;
+
 import java.util.Date;
+
 /**
  *
  * @author MY PC
  */
 public class Lophoc {
+
     private int id;
-    private Khoahoc Khoahoc;
+    private int Khoahoc;
     private Hocvien Hocvien;
     private Date start_register;
     private boolean status;
+    private String name;
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;
@@ -23,11 +35,11 @@ public class Lophoc {
         this.id = id;
     }
 
-    public Khoahoc getKhoahoc() {
-        return Khoahoc;
+    public int getKhoahoc() {
+        return this.Khoahoc;
     }
 
-    public void setKhoahoc(Khoahoc khoahoc) {
+    public void setKhoahoc(int khoahoc) {
         this.Khoahoc = khoahoc;
     }
 
@@ -55,6 +67,4 @@ public class Lophoc {
         this.status = status;
     }
 
-   
-    
 }
