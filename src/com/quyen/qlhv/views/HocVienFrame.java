@@ -263,8 +263,8 @@ public class HocVienFrame extends javax.swing.JFrame {
         );
 
         btnSave.setBackground(new java.awt.Color(0, 255, 51));
-        btnSave.setColorPrimario(new java.awt.Color(51, 255, 51));
-        btnSave.setColorSecundario(new java.awt.Color(0, 255, 102));
+        btnSave.setColorPrimario(new java.awt.Color(52, 189, 235));
+        btnSave.setColorSecundario(new java.awt.Color(52, 189, 235));
 
         jlb_save.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jlb_save.setForeground(new java.awt.Color(255, 255, 255));

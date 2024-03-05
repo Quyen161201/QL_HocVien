@@ -23,7 +23,7 @@ public class MainJFrame extends javax.swing.JFrame {
         setTitle("Quản lý học viên");
         ChuyenManHinhController controller = new ChuyenManHinhController(jpnView);
         controller.setView(jpnTrangchu, jlbTrangchu);
-        
+        setExtendedState(MainJFrame.MAXIMIZED_BOTH);
         List<DanhMucBean>listItem= new ArrayList<>();
         listItem.add(new DanhMucBean("TrangChu",jpnTrangchu,jlbTrangchu));
         listItem.add(new DanhMucBean("HocVien",jpnHocvien,jlbHocvien));
@@ -65,9 +65,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jpnMenu.setBackground(new java.awt.Color(153, 153, 153));
+        jpnMenu.setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(255, 51, 0));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,7 +91,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        jpnTrangchu.setBackground(new java.awt.Color(0, 204, 51));
+        jpnTrangchu.setBackground(new java.awt.Color(52, 189, 235));
 
         jlbTrangchu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jlbTrangchu.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,12 +110,12 @@ public class MainJFrame extends javax.swing.JFrame {
         jpnTrangchuLayout.setVerticalGroup(
             jpnTrangchuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnTrangchuLayout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
-                .addComponent(jlbTrangchu, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jlbTrangchu)
                 .addContainerGap())
         );
 
-        jpnHocvien.setBackground(new java.awt.Color(0, 204, 51));
+        jpnHocvien.setBackground(new java.awt.Color(52, 189, 235));
 
         jlbHocvien.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jlbHocvien.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,7 +139,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jpnKhoahoc.setBackground(new java.awt.Color(0, 204, 51));
+        jpnKhoahoc.setBackground(new java.awt.Color(52, 189, 235));
         jpnKhoahoc.setForeground(new java.awt.Color(255, 255, 255));
 
         jlbKhoahoc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -164,7 +164,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jpnLophoc.setBackground(new java.awt.Color(0, 204, 51));
+        jpnLophoc.setBackground(new java.awt.Color(52, 189, 235));
 
         jlbLophoc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jlbLophoc.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,7 +188,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jpnThongke.setBackground(new java.awt.Color(0, 204, 51));
+        jpnThongke.setBackground(new java.awt.Color(52, 189, 235));
 
         jlbThongke.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jlbThongke.setForeground(new java.awt.Color(255, 255, 255));
@@ -239,7 +239,7 @@ public class MainJFrame extends javax.swing.JFrame {
             jpnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnMenuLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addComponent(jpnTrangchu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jpnHocvien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,7 +249,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jpnLophoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jpnThongke, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(jpnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
