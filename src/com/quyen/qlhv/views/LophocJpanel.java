@@ -3,18 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.quyen.qlhv.views;
+import com.quyen.qlhv.controller.lophocController;
 
 /**
  *
  * @author MY PC
  */
 public class LophocJpanel extends javax.swing.JPanel {
-
+private  lophocController controller;
     /**
      * Creates new form LophocJpanel
      */
     public LophocJpanel() {
         initComponents();
+        controller=new lophocController( viewJPane,btnAdd,btnDelete,btnEdit,btnRefresh,btnDetail);
+        controller.setDataToTable();
     }
 
     /**
@@ -26,39 +29,90 @@ public class LophocJpanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        btnAdd = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnDetail = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
+        viewJPane = new javax.swing.JPanel();
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 204));
+        btnAdd.setText("Add");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
+        btnDelete.setText("Delete");
+
+        btnEdit.setText("Edit");
+
+        btnDetail.setText("Detail");
+
+        btnRefresh.setText("Refresh");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(294, Short.MAX_VALUE)
+                .addComponent(btnDetail)
+                .addGap(30, 30, 30)
+                .addComponent(btnEdit)
+                .addGap(60, 60, 60)
+                .addComponent(btnAdd)
+                .addGap(61, 61, 61)
+                .addComponent(btnDelete)
+                .addGap(18, 18, 18)
+                .addComponent(btnRefresh)
+                .addGap(193, 193, 193))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdd)
+                    .addComponent(btnDelete)
+                    .addComponent(btnEdit)
+                    .addComponent(btnDetail)
+                    .addComponent(btnRefresh))
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout viewJPaneLayout = new javax.swing.GroupLayout(viewJPane);
+        viewJPane.setLayout(viewJPaneLayout);
+        viewJPaneLayout.setHorizontalGroup(
+            viewJPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        viewJPaneLayout.setVerticalGroup(
+            viewJPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(viewJPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(viewJPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDetail;
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnRefresh;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel viewJPane;
     // End of variables declaration//GEN-END:variables
 }
