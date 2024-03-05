@@ -5,11 +5,13 @@
 package com.quyen.qlhv.model;
 
 import java.util.Date;
+
 /**
  *
  * @author MY PC
  */
 public class Hocvien {
+
     private int id;
     private String name;
     private String phone;
@@ -18,9 +20,16 @@ public class Hocvien {
     private Date date_birth;
     private boolean gender;
     private boolean status;
-    
-    
-    
+    private int classId;
+
+    public int getClassId() {
+        return this.classId;
+    }
+
+    public void setClassId(int i) {
+        this.classId = i;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -28,7 +37,6 @@ public class Hocvien {
     public void setEmail(String email) {
         this.email = email;
     }
-    
 
     public int getId() {
         return id;
@@ -88,10 +96,7 @@ public class Hocvien {
 
     @Override
     public String toString() {
-        return  id + "-" + name;
+        return id + "-" + name;
     }
 
-    
-    
-    
 }

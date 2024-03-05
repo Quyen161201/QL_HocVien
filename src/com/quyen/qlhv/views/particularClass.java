@@ -4,17 +4,87 @@
  */
 package com.quyen.qlhv.views;
 
+import com.quyen.qlhv.dao.DBconnect;
+
+import javax.swing.JScrollPane;
+import java.util.*;
+import com.quyen.qlhv.model.Hocvien;
+import com.quyen.qlhv.utility.ClassTableModel;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.JDialog;
+import java.awt.BorderLayout;
+
+
+
 /**
  *
  * @author Vutha
  */
 public class particularClass extends javax.swing.JPanel {
 
+    private static List<Hocvien> getStudentsByClassId(int classId) {
+        List<Hocvien> students = new ArrayList<>();
+        String sql = "SELECT * FROM student WHERE class_room_id = ?";
+
+        try (Connection conn = DBconnect.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, classId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Hocvien student = new Hocvien();
+                student.setId(rs.getInt("id"));
+                student.setName(rs.getString("name"));
+                student.setGender(rs.getBoolean("gender"));
+                student.setPhone(rs.getString("phone"));
+                student.setEmail(rs.getString("email"));
+                student.setDate_birth(rs.getDate("date_birth"));
+                student.setAddress(sql);
+                student.setStatus(rs.getBoolean("status"));
+                //student.classRoomId = rs.getInt("class_room_id");
+                students.add(student);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return students;
+    }
+
+    public void displayStudentTable(int classId) {
+    // Lấy danh sách học viên
+    List<Hocvien> listHocVien = getStudentsByClassId(classId);
+    String[] columnNames = {"ID", "S.No", "Name", "Birth Date", "Gender", "Phone", "Email", "Address", "Status"};
+    ClassTableModel modelHelper = new ClassTableModel();
+    DefaultTableModel model = modelHelper.setTableHocVien(listHocVien, columnNames);
+
+    // Tạo bảng và đặt vào JScrollPane
+    JTable table = new JTable(model);
+    JScrollPane scrollPane = new JScrollPane(table);
+    scrollPane.setBounds(30, 40, 200, 300);
+
+    // Tạo form con (child form) sử dụng JDialog hoặc JFrame mới
+    JDialog childForm = new JDialog();
+    childForm.setTitle("Thông Tin Học Viên Trong Lớp"); // Đặt tiêu đề cho form con
+    childForm.getContentPane().setLayout(new BorderLayout()); // Sử dụng BorderLayout làm layout manager
+    childForm.getContentPane().add(scrollPane, BorderLayout.CENTER); // Thêm JScrollPane vào giữa form con
+
+    // Đặt kích thước và hiển thị form con
+    childForm.setSize(700, 400);
+    childForm.setLocationRelativeTo(null); // Đặt vị trí form con ở giữa màn hình
+    childForm.setVisible(true);
+}
     /**
      * Creates new form particularClass
      */
     public particularClass() {
         initComponents();
+        
     }
 
     /**
@@ -28,24 +98,37 @@ public class particularClass extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         nameClass = new javax.swing.JLabel();
+        viewDetailForm = new javax.swing.JPanel();
 
         nameClass.setText("jLabel1");
+
+        javax.swing.GroupLayout viewDetailFormLayout = new javax.swing.GroupLayout(viewDetailForm);
+        viewDetailForm.setLayout(viewDetailFormLayout);
+        viewDetailFormLayout.setHorizontalGroup(
+            viewDetailFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        viewDetailFormLayout.setVerticalGroup(
+            viewDetailFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 435, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(viewDetailForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(214, 214, 214)
                 .addComponent(nameClass, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(nameClass, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addGap(80, 80, 80)
+                .addComponent(viewDetailForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -68,5 +151,6 @@ public class particularClass extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel nameClass;
+    private javax.swing.JPanel viewDetailForm;
     // End of variables declaration//GEN-END:variables
 }
